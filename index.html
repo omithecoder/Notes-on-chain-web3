@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Notes On Chain</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+			crossorigin="anonymous"
+		/>
+
+		<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+
+		<style>
+			span.emoji {
+				font-size: 30px;
+				vertical-align: middle;
+				line-height: 1;
+			}
+
+            
+            .card:nth-child(odd) {
+                background-color: #fea57d;
+            }
+            .card:nth-child(even) {
+                background-color: #05d9fe;
+            }
+            .card:nth-child(3n) {
+                background-color: #e7f19a;
+            }
+            .card:nth-child(4n) {
+                background-color: #be9eff;
+            }
+            .card:nth-child(5n) {
+                background-color: #ffcf7d;
+            }
+
+		</style>
+	</head>
+	<body style="overflow-x: hidden">
+		<section id="navbar">
+			<nav class="navbar">
+				<div class="container-fluid p-0">
+					<span
+						class="navbar-brand h1"
+						style="font-size: 2rem; margin-left: 2rem"
+						>Notes</span
+					>
+					<div
+						id="status"
+						style="
+							margin-right: 50px;
+							background-color: rgb(207, 97, 97, 0.5);
+							border-radius: 2rem;
+							width: 28rem;
+							padding: 0.5rem;
+						"
+					>
+						<span style="font-weight: 700">Address</span>
+						<span id="address">0x0000000000000......</span>
+					</div>
+				</div>
+			</nav>
+		</section>
+		<section
+			id="hero"
+			style="
+				height: 100vh;
+				width: 100vw;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			"
+		>
+			<div class="text-center">
+				<img
+					class="d-block mx-auto mb-4"
+					src="./webLogo.png"
+					alt=""
+					width="250"
+					height="230"
+				/>
+				<h1 class="display-5 fw-bold text-body-emphasis">Notes On Chain</h1>
+				<div class="col-lg-6 mx-auto">
+					<p class="lead mb-4">
+						<!-- write something about notes application which is based on bloackchain along with some quotes -->
+						Notes On Chain is a decentralized application that allows you to
+						store your notes on the blockchain. It is a secure and reliable way
+						to store your notes. It is a decentralized application that allows
+						you to store your notes on the blockchain. It is a secure and
+						reliable way to store your notes.
+					</p>
+					<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+						<button
+							type="button"
+							class="btn btn-lg px-4 gap-3"
+							style="background-color: rgb(28, 28, 28); color: white"
+							id="connectWallet"
+							onclick="connectWallet()"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="2em"
+								height="2em"
+								viewBox="0 0 256 256"
+							>
+								<path
+									fill="currentColor"
+									d="M216 64H56a8 8 0 0 1 0-16h136a8 8 0 0 0 0-16H56a24 24 0 0 0-24 24v128a24 24 0 0 0 24 24h160a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16m-36 80a12 12 0 1 1 12-12a12 12 0 0 1-12 12"
+								/>
+							</svg>
+							Connect Wallet
+						</button>
+						<button type="button" class="btn btn-outline-secondary btn-lg px-4">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="32"
+								height="32"
+								viewBox="0 0 24 24"
+							>
+								<g
+									fill="none"
+									stroke="black"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+								>
+									<path
+										fill="black"
+										fill-opacity="0"
+										stroke-dasharray="64"
+										stroke-dashoffset="64"
+										d="M8 3C8.5 3 10.5 7.5 10.5 8C10.5 9 9 10 8.5 11C8 12 9 13 10 14C10.3943 14.3943 12 16 13 15.5C14 15 15 13.5 16 13.5C16.5 13.5 21 15.5 21 16C21 18 19.5 19.5 18 20C16.5 20.5 15.5 20.5 13.5 20C11.5 19.5 10 19 7.5 16.5C5 14 4.5 12.5 4 10.5C3.5 8.5 3.5 7.5 4 6C4.5 4.5 6 3 8 3Z"
+									>
+										<animate
+											fill="freeze"
+											attributeName="stroke-dashoffset"
+											dur="0.6s"
+											values="64;0"
+										/>
+										<animate
+											fill="freeze"
+											attributeName="fill-opacity"
+											begin="0.6s"
+											dur="0.15s"
+											values="0;1"
+										/>
+										<animateTransform
+											attributeName="transform"
+											begin="0.6s;lineMdPhoneCallTwotoneLoop0.begin+2.6s"
+											dur="0.5s"
+											type="rotate"
+											values="0 12 12;15 12 12;0 12 12;-12 12 12;0 12 12;12 12 12;0 12 12;-15 12 12;0 12 12"
+										/>
+									</path>
+									<path
+										stroke-dasharray="4"
+										stroke-dashoffset="4"
+										d="M14 7.04404C14.6608 7.34734 15.2571 7.76718 15.7624 8.27723M16.956 10C16.6606 9.35636 16.2546 8.77401 15.7624 8.27723"
+										opacity="0"
+									>
+										<set
+											id="lineMdPhoneCallTwotoneLoop0"
+											attributeName="opacity"
+											begin="0.7s;lineMdPhoneCallTwotoneLoop0.begin+2.7s"
+											to="1"
+										/>
+										<animate
+											fill="freeze"
+											attributeName="stroke-dashoffset"
+											begin="0.7s;lineMdPhoneCallTwotoneLoop0.begin+2.7s"
+											dur="0.2s"
+											values="4;8"
+										/>
+										<animate
+											fill="freeze"
+											attributeName="stroke-dashoffset"
+											begin="1.3s;lineMdPhoneCallTwotoneLoop0.begin+3.3s"
+											dur="0.3s"
+											values="0;4"
+										/>
+										<set
+											attributeName="opacity"
+											begin="1.6s;lineMdPhoneCallTwotoneLoop0.begin+3.6s"
+											to="0"
+										/>
+									</path>
+									<path
+										stroke-dasharray="10"
+										stroke-dashoffset="10"
+										d="M20.748 9C20.3874 7.59926 19.6571 6.347 18.6672 5.3535M15 3.25203C16.4105 3.61507 17.6704 4.3531 18.6672 5.3535"
+										opacity="0"
+									>
+										<set
+											attributeName="opacity"
+											begin="1s;lineMdPhoneCallTwotoneLoop0.begin+3s"
+											to="1"
+										/>
+										<animate
+											fill="freeze"
+											attributeName="stroke-dashoffset"
+											begin="1s;lineMdPhoneCallTwotoneLoop0.begin+3s"
+											dur="0.2s"
+											values="10;20"
+										/>
+										<animate
+											fill="freeze"
+											attributeName="stroke-dashoffset"
+											begin="1.5s;lineMdPhoneCallTwotoneLoop0.begin+3.5s"
+											dur="0.3s"
+											values="0;10"
+										/>
+										<set
+											attributeName="opacity"
+											begin="1.8s;lineMdPhoneCallTwotoneLoop0.begin+3.8s"
+											to="0"
+										/>
+									</path>
+								</g>
+							</svg>
+							Contact Us
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section
+			id="userInfo"
+			style="
+				height: 100vh;
+				width: 100vw;
+				background-color: rgba(224, 224, 224, 0.904);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			"
+		>
+			<div id="intro" class="container" style="font-weight: 800">
+				<h1 style="font-size: 4rem">
+					Hello
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="64"
+						height="64"
+						viewBox="0 0 128 128"
+					>
+						<path
+							fill="#ffca28"
+							d="M20.52 69.41c-.5-7.06-6.99-28.77-7.83-32.13c-1.02-4.1-1.08-8 2.23-9.31c3.54-1.4 6.56-.33 8.66 5.4l10.11 24.55c.36.87 1.24 1.96 2.81 1.54c1.33-.36 1.57-1.72 1.4-2.72c-1.19-6.88-5.18-30.66-5.52-34.67c-.56-6.7 1.12-9.01 4.42-9.48c3.91-.56 6.43 1.66 7.45 6.97L52 55.77c.2.94 1.06 1.58 2.02 1.51l.37-.03a1.91 1.91 0 0 0 1.76-1.87c.15-7.65.79-38.13 1.37-43.4c.67-6.09 3.07-7.94 6.23-7.94c3.76 0 5.94 1.71 6.61 8.15c.66 6.36.69 36.01.6 43.68c-.01 1 .75 1.84 1.75 1.93h.05c.95.08 2.14-.52 2.35-1.45c1.53-6.6 6-31.95 7.53-37.18c1.77-6.05 4.77-6.72 8.15-6c3.45.73 4.33 4.6 3.49 9.63c-.48 2.87-3.86 30.76-4.18 38.32c-.29 6.94 1.3 16.48 1.3 16.48c7.36-13.08 22.64-19.43 28.03-11.73c.76 1.08 1.03 4.23-2.32 7.57c-2.47 2.46-6.6 6.02-11.29 12.93C94.83 102.54 91.21 124 59.76 124c-17.51 0-27.8-7.39-32.98-19.01c-6.26-14.08-5.76-28.52-6.26-35.58"
+						/>
+						<g fill="#eda600">
+							<path
+								d="M114.47 72.4c-2.89 2.4-7.48 5.82-12.22 12.79c-2.38 3.49-4.13 6.12-6.1 9.7c-7.4 13.48-11.02 22.33-31.96 27.07c-3.47.79-7.32 1.97-7.32 1.97c.94.05 1.9.08 2.89.08c31.45 0 35.06-21.46 46.07-37.64c4.7-6.9 8.83-10.47 11.29-12.93c2.23-2.23 2.85-4.36 2.79-5.86c-1.02 2.17-2.55 2.42-5.44 4.82M60.14 95.29c6.52-18.99 21.46-17.55 29.42-20.2l1.96 2.51c-1.72 2.47-5.22 2.5-9.5 3.82c-15.36 4.75-18.26 14.29-20.48 19.36c-.48 1.09-.85 3.35-1.21 4.56c-.25.83-2.14 2.05-2.14-.19c-.01-2.14.63-6.02 1.95-9.86"
+							/>
+							<path
+								d="M92.01 18.89c-.16 1.47-4.14 37.6-4.28 42.49c-.16 5.46.55 15.1.61 15.58c0 0 .74 2.18 1.79 1.86c1.92-.58 2.98-3.84 2.98-3.84s-1.38-.32-1.57-1.67c-.14-1.02-.39-2.82-.39-12.16s3.49-36.13 3.78-39.56c.42-4.98-.78-7.67-4.14-8.36c.01-.01 1.64 1.78 1.22 5.66M19.82 30.27c.91 2.2 9.8 24.33 11.28 27.55c1.61 3.51 5.25 1.68 5.25 1.68s-.78.45-1.65-1.58c-2.37-5.53-11.94-27.57-11.94-27.57c-1.56-4.27-6.05-3.05-6.95-2.7c0-.01 3.11.42 4.01 2.62M67.27 8.28c.31 2.43 1.28 37.46 1.06 45.91c-.13 5.03 5.07 3.58 5.07 3.58s-1.38-.34-1.51-2.21c-.5-7.66.05-38.62-.76-44.96c-.67-5.25-3.55-6.89-7.28-6.56c.01 0 2.96.68 3.42 4.24m-26.43 7.29c.88 3.04 8.03 39.14 8.03 39.14c.87 3.74 5.12 2.57 5.12 2.57s-.76-.27-1.35-2.33c-.36-1.26-7.58-35.89-7.58-35.89c-.92-4.78-2.79-6.35-5.8-6.6c-1.19-.1-2.22.08-2.22.08s3.07.48 3.8 3.03"
+							/>
+						</g>
+					</svg>
+					User
+				</h1>
+				<h1>
+					What could we call you
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="32"
+						height="32"
+						viewBox="0 0 64 64"
+					>
+						<path
+							fill="#be212f"
+							d="M1.708 36.424c.25 2.583.665 4.506 1.247 5.768c.583 1.263 1.626 1.896 3.123 1.896c.281 0 .535-.047.785-.094c.25.047.504.094.782.094c1.5 0 2.54-.633 3.126-1.896c.579-1.262.997-3.185 1.247-5.768l1.333-19.939c.25-3.886.375-6.676.375-8.369c0-2.304-.606-4.101-1.81-5.391C10.703 1.436 9.117.79 7.143.79c-.102 0-.18.023-.281.027C6.76.813 6.682.79 6.577.79c-1.969 0-3.56.646-4.768 1.936S0 5.812 0 8.116c0 1.692.125 4.482.375 8.369zM6.905 51.37c-1.907 0-3.536.604-4.884 1.809c-1.349 1.21-2.02 2.673-2.02 4.392c0 1.944.68 3.47 2.044 4.58c1.364 1.109 2.954 1.666 4.771 1.666c1.849 0 3.462-.549 4.842-1.645c1.379-1.097 2.067-2.628 2.067-4.602c0-1.72-.661-3.183-1.978-4.393c-1.316-1.203-2.93-1.807-4.841-1.807m34.334 0c-1.907 0-3.537.604-4.885 1.811c-1.349 1.208-2.02 2.671-2.02 4.393c0 1.942.682 3.468 2.044 4.578c1.365 1.109 2.956 1.666 4.773 1.666c1.849 0 3.46-.549 4.84-1.645c1.379-1.097 2.066-2.63 2.066-4.6c0-1.722-.658-3.185-1.977-4.393c-1.318-1.206-2.928-1.81-4.839-1.81M60.716 8.64c-1.754-2.663-4.261-4.793-7.458-6.336C50.081.776 46.381 0 42.258 0c-4.44 0-8.394.928-11.743 2.761c-3.353 1.835-5.943 4.189-7.7 6.997c-1.767 2.822-2.664 5.659-2.664 8.435c0 1.483.618 2.866 1.829 4.109c1.217 1.249 2.731 1.882 4.5 1.882c3.02 0 5.074-1.771 6.122-5.244c.954-2.873 2.129-5.064 3.49-6.514c1.279-1.368 3.354-2.062 6.166-2.062c2.425 0 4.338.68 5.855 2.081c1.495 1.381 2.224 3.03 2.224 5.04a5.61 5.61 0 0 1-.711 2.781a11.289 11.289 0 0 1-1.868 2.469c-.777.778-2.059 1.948-3.812 3.482c-2.042 1.79-3.689 3.357-4.889 4.658a16.142 16.142 0 0 0-3.02 4.725c-.758 1.793-1.144 3.937-1.144 6.365c0 2.075.579 3.682 1.722 4.775c1.131 1.082 2.54 1.634 4.189 1.634c3.153 0 5.135-1.722 5.725-4.947c.299-1.339.525-2.276.676-2.81c.137-.485.334-.981.588-1.478c.246-.482.638-1.031 1.163-1.63c.549-.631 1.289-1.373 2.198-2.201c3.397-3.039 5.795-5.239 7.125-6.54c1.372-1.34 2.567-2.952 3.555-4.789c1.018-1.881 1.531-4.095 1.531-6.579c0-3.138-.89-6.086-2.645-8.759"
+						/>
+					</svg>
+				</h1>
+				<div class="input-group flex-nowrap">
+					<span
+						class="input-group-text"
+						id="addon-wrapping"
+						style="font-size: 2rem"
+						>@</span
+					>
+					<input
+						type="text"
+						class="form-control"
+						placeholder="Username"
+						aria-label="Username"
+						aria-describedby="addon-wrapping"
+						style="
+							height: 5rem;
+							font-size: 2rem;
+							background-color: rgba(255, 68, 0, 0.591);
+						"
+						id="username"
+					/>
+					<button
+						class="btn"
+						style="
+							font-size: 1.2rem;
+							font-weight: 600;
+							background-color: rgb(35, 35, 35);
+							color: white;
+						"
+						type="button"
+						onclick="createUser()"
+					>
+						Newbie 😀
+					</button>
+					<button
+						class="btn"
+						style="
+							font-size: 1.2rem;
+							font-weight: 600;
+							background-color: rgba(35, 35, 35, 0.571);
+							color: white;
+						"
+						type="button"
+						onclick="alreadyhaveUsername()"
+					>
+						Already have Username
+					</button>
+				</div>
+			</div>
+		</section>
+		<section id="Notes" style="height: 100vh; width: 100vw; display: flex;" onload="getUser()">
+			<div
+				class="d-flex flex-column flex-shrink-0 bg-body-tertiary"
+				style="width: 9.5rem; height: 100%"
+			>
+				<a
+					href="/"
+					class="d-block p-3 link-body-emphasis text-decoration-none"
+					data-bs-toggle="tooltip"
+					data-bs-placement="right"
+					data-bs-original-title="Icon-only"
+				>
+					<svg class="bi pe-none" width="40" height="32">
+						<use xlink:href="#bootstrap"></use>
+					</svg>
+					<span class="visually-hidden">Icon-only</span>
+				</a>
+				<ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+                    <li class="nav-item">
+                        <h3 style="margin-bottom: 3.5rem;font-weight: 750;">🔗 Notes</h3>
+                    </li>
+					<li class="nav-item" onclick="popUpForm1()">
+						<a
+							
+							class="nav-link  py-3 border-bottom rounded-0"
+							aria-current="page"
+							data-bs-toggle="tooltip"
+							data-bs-placement="right"
+							aria-label="Home"
+							data-bs-original-title="Home"
+
+						>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 20 20"><path fill="black" d="M11 9V5H9v4H5v2h4v4h2v-4h4V9zm-1 11a10 10 0 1 1 0-20a10 10 0 0 1 0 20"/></svg>
+								<use xlink:href="#home"></use>
+							</svg>
+						</a>
+					</li>
+					<li class="nav-item" onclick="popUpForm2()">
+						<a
+							
+							class="nav-link  py-3 border-bottom rounded-0"
+							aria-current="page"
+							data-bs-toggle="tooltip"
+							data-bs-placement="right"
+							aria-label="Home"
+							data-bs-original-title="Home"
+						>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24"><path fill="red" d="M3 6.386c0-.484.345-.877.771-.877h2.665c.529-.016.996-.399 1.176-.965l.03-.1l.115-.391c.07-.24.131-.45.217-.637c.338-.739.964-1.252 1.687-1.383c.184-.033.378-.033.6-.033h3.478c.223 0 .417 0 .6.033c.723.131 1.35.644 1.687 1.383c.086.187.147.396.218.637l.114.391l.03.1c.18.566.74.95 1.27.965h2.57c.427 0 .772.393.772.877s-.345.877-.771.877H3.77c-.425 0-.77-.393-.77-.877"/><path fill="red" fill-rule="evenodd" d="M11.596 22h.808c2.783 0 4.174 0 5.08-.886c.904-.886.996-2.339 1.181-5.245l.267-4.188c.1-1.577.15-2.366-.303-2.865c-.454-.5-1.22-.5-2.753-.5H8.124c-1.533 0-2.3 0-2.753.5c-.454.5-.404 1.288-.303 2.865l.267 4.188c.185 2.906.277 4.36 1.182 5.245c.905.886 2.296.886 5.079.886m-1.35-9.811c-.04-.434-.408-.75-.82-.707c-.413.043-.713.43-.672.864l.5 5.263c.04.434.408.75.82.707c.413-.043.713-.43.672-.864zm4.329-.707c.412.043.713.43.671.864l-.5 5.263c-.04.434-.409.75-.82.707c-.413-.043-.713-.43-.672-.864l.5-5.263c.04-.434.409-.75.82-.707" clip-rule="evenodd"/></svg>
+						</a>
+					</li>
+					<li class="nav-item" onclick="getAllNotes()">
+						<a
+							
+							class="nav-link  py-3 border-bottom rounded-0"
+							aria-current="page"
+							data-bs-toggle="tooltip"
+							data-bs-placement="right"
+							aria-label="Home"
+							data-bs-original-title="Home"
+						>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24"><path fill="#1154c0" d="M12.793 2.293a1 1 0 0 1 1.414 0l3 3a1 1 0 0 1 0 1.414l-3 3a1 1 0 0 1-1.414-1.414L14.086 7H12.5C8.952 7 6 9.952 6 13.5S8.952 20 12.5 20s6.5-2.952 6.5-6.5a1 1 0 1 1 2 0c0 4.652-3.848 8.5-8.5 8.5S4 18.152 4 13.5S7.848 5 12.5 5h1.586l-1.293-1.293a1 1 0 0 1 0-1.414"/></svg>
+						</a>
+					</li>
+					
+					
+				</ul>
+				<div class="dropdown border-top">
+					<a
+						href="#"
+						class="d-flex align-items-center justify-content-center p-3 link-body-emphasis text-decoration-none dropdown-toggle"
+						data-bs-toggle="dropdown"
+						aria-expanded="false"
+					>
+						<img
+							src="https://github.com/mdo.png"
+							alt="mdo"
+							width="64"
+							height="64"
+							class="rounded-circle"
+						/>
+					</a>
+					<ul class="dropdown-menu text-small shadow">
+						<li><a class="dropdown-item" href="#">New project...</a></li>
+						<li><a class="dropdown-item" href="#">Settings</a></li>
+						<li><a class="dropdown-item" href="#">Profile</a></li>
+						<li><hr class="dropdown-divider" /></li>
+						<li><a class="dropdown-item" href="#">Sign out</a></li>
+					</ul>
+				</div>
+			</div>
+            <div id="dashboard" style="height: 100%;width: 100%;background-color: rgb(227, 227, 227); display: flex; flex-direction: column; ">
+                <div class="input-group mt-2 mx-5" style="width: 90%;">
+					<svg class="mt-4" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24"><path fill="none" stroke="#525558" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314"/></svg>
+					<input
+						type="text"
+						class="form-control"
+						placeholder="Search"
+						aria-label="Username"
+						aria-describedby="addon-wrapping"
+						style="
+							height: 5rem;
+							font-size: 1.2rem;
+							background-color: rgba(255, 255, 255, 0);
+                            border-bottom: 1px solid black;
+                            
+						"
+						id="username"
+					/>
+                    
+					
+				</div>
+                <h2 style="margin: 50px; font-weight: 700;">Notes</h2>
+                <div class="container" id="notescards" style="display: flex; flex-wrap: wrap;   ">
+                    
+                        <!-- Notes card section -->
+
+                
+            </div>
+
+            <!-- create notes -->
+            
+            <div class="modal" id="createNotesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title" id="exampleModalLabel">Create Notes</h3>
+                            
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" class="form-control" placeholder="Title" aria-label="Username" aria-describedby="addon-wrapping" style="height: 5rem; font-size: 1.2rem; background-color: rgba(255, 255, 255, 0); border-bottom: 1px solid black;" id="title">
+                            
+                            <input type="text" class="form-control" placeholder="Description" aria-label="Username" aria-describedby="addon-wrapping" style="height: 5rem; font-size: 1.2rem; background-color: rgba(255, 255, 255, 0); border-bottom: 1px solid black;" id="description">
+                            
+                            <input type="text" class="form-control" placeholder="KeyWords" aria-label="Username" aria-describedby="addon-wrapping" style="height: 5rem; font-size: 1.2rem; background-color: rgba(255, 255, 255, 0); border-bottom: 1px solid black;" id="keywords">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="createNotes()">Create Note</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- update notes -->
+
+            <div class="modal" id="updateNotesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title" id="exampleModalLabel">Update Notes</h3>
+                            
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" class="form-control" placeholder="Title" aria-label="Username" aria-describedby="addon-wrapping" style="height: 5rem; font-size: 1.2rem; background-color: rgba(255, 255, 255, 0); border-bottom: 1px solid black;" id="uptitle">
+                            
+                            <input type="text" class="form-control" placeholder="Description" aria-label="Username" aria-describedby="addon-wrapping" style="height: 5rem; font-size: 1.2rem; background-color: rgba(255, 255, 255, 0); border-bottom: 1px solid black;" id="updescription">
+                            
+                            <input type="text" class="form-control" placeholder="KeyWords" aria-label="Username" aria-describedby="addon-wrapping" style="height: 5rem; font-size: 1.2rem; background-color: rgba(255, 255, 255, 0); border-bottom: 1px solid black;" id="upkeywords">
+
+                            <p style="font-size: 1.2rem; font-weight: 700; display: none;" id="notenum"></p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-warning" onclick="updateNotes()">Update Note</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- delete notes -->
+
+            <div class="modal" id="deleteNotesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title" id="exampleModalLabel">Delete Notes</h3>
+                            
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" class="form-control" placeholder="Note Number" aria-label="Username" aria-describedby="addon-wrapping" style="height: 5rem; font-size: 1.2rem; background-color: rgba(255, 255, 255, 0); border-bottom: 1px solid black;" id="deleteNote">
+                            
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-danger" onclick="deleteNotes()">Delete Note</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+		</section>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+			crossorigin="anonymous"
+		></script>
+
+		<script>
+			var web3;
+			var Contactaddress = "0xe148cc3e038eFB6fF6124E1e7ad29B7a7aeD622b";
+            var username;
+
+			// connect wallet function
+			async function connectWallet() {
+				if (window.ethereum) {
+					try {
+						await window.ethereum.request({ method: "eth_requestAccounts" });
+						web3 = new Web3(window.ethereum);
+						const accounts = await web3.eth.getAccounts();
+						address = accounts[0];
+						console.log(address);
+						document.getElementById("address").innerText = address;
+						document.getElementById("status").style.backgroundColor =
+							"rgb(97, 207, 97, 0.5)";
+						window.location.href = "#userInfo";
+					} catch (error) {
+						console.error(error);
+					}
+				} else {
+					alert("Please install MetaMask!");
+				}
+			}
+
+			if (typeof web3 !== "undefined") {
+				web3 = new Web3(web3.currentProvider);
+			} else {
+				web3 = new Web3(
+					new Web3.providers.HttpProvider("http://localhost:7545")
+				);
+			}
+
+			//connect smart contract
+			var abi = [
+				{
+					inputs: [],
+					stateMutability: "nonpayable",
+					type: "constructor",
+				},
+				{
+					anonymous: false,
+					inputs: [
+						{
+							indexed: false,
+							internalType: "address",
+							name: "user",
+							type: "address",
+						},
+						{
+							indexed: false,
+							internalType: "bytes32",
+							name: "id",
+							type: "bytes32",
+						},
+						{
+							indexed: false,
+							internalType: "string",
+							name: "title",
+							type: "string",
+						},
+						{
+							indexed: false,
+							internalType: "uint256",
+							name: "timestamp",
+							type: "uint256",
+						},
+					],
+					name: "NewNote",
+					type: "event",
+				},
+				{
+					anonymous: false,
+					inputs: [
+						{
+							indexed: false,
+							internalType: "address",
+							name: "user",
+							type: "address",
+						},
+						{
+							indexed: false,
+							internalType: "bytes32",
+							name: "id",
+							type: "bytes32",
+						},
+						{
+							indexed: false,
+							internalType: "string",
+							name: "title",
+							type: "string",
+						},
+						{
+							indexed: false,
+							internalType: "uint256",
+							name: "timestamp",
+							type: "uint256",
+						},
+					],
+					name: "NewTask",
+					type: "event",
+				},
+				{
+					anonymous: false,
+					inputs: [
+						{
+							indexed: false,
+							internalType: "string",
+							name: "username",
+							type: "string",
+						},
+						{
+							indexed: false,
+							internalType: "address",
+							name: "account",
+							type: "address",
+						},
+						{
+							indexed: false,
+							internalType: "uint256",
+							name: "Joiningtime",
+							type: "uint256",
+						},
+					],
+					name: "NewUser",
+					type: "event",
+				},
+				{
+					inputs: [
+						{
+							internalType: "address",
+							name: "",
+							type: "address",
+						},
+					],
+					name: "notescount",
+					outputs: [
+						{
+							internalType: "uint256",
+							name: "",
+							type: "uint256",
+						},
+					],
+					stateMutability: "view",
+					type: "function",
+					constant: true,
+				},
+				{
+					inputs: [
+						{
+							internalType: "address",
+							name: "",
+							type: "address",
+						},
+					],
+					name: "taskcount",
+					outputs: [
+						{
+							internalType: "uint256",
+							name: "",
+							type: "uint256",
+						},
+					],
+					stateMutability: "view",
+					type: "function",
+					constant: true,
+				},
+				{
+					inputs: [],
+					name: "usersCount",
+					outputs: [
+						{
+							internalType: "uint256",
+							name: "",
+							type: "uint256",
+						},
+					],
+					stateMutability: "view",
+					type: "function",
+					constant: true,
+				},
+				{
+					inputs: [
+						{
+							internalType: "string",
+							name: "username",
+							type: "string",
+						},
+					],
+					name: "createUser",
+					outputs: [
+						{
+							components: [
+								{
+									internalType: "string",
+									name: "username",
+									type: "string",
+								},
+								{
+									internalType: "address",
+									name: "userAccount",
+									type: "address",
+								},
+								{
+									internalType: "uint256",
+									name: "JoinTime",
+									type: "uint256",
+								},
+							],
+							internalType: "struct TodoList.User",
+							name: "",
+							type: "tuple",
+						},
+					],
+					stateMutability: "nonpayable",
+					type: "function",
+				},
+				{
+					inputs: [],
+					name: "getUser",
+					outputs: [
+						{
+							components: [
+								{
+									internalType: "string",
+									name: "username",
+									type: "string",
+								},
+								{
+									internalType: "address",
+									name: "userAccount",
+									type: "address",
+								},
+								{
+									internalType: "uint256",
+									name: "JoinTime",
+									type: "uint256",
+								},
+							],
+							internalType: "struct TodoList.User",
+							name: "",
+							type: "tuple",
+						},
+					],
+					stateMutability: "view",
+					type: "function",
+					constant: true,
+				},
+				{
+					inputs: [
+						{
+							internalType: "string",
+							name: "title",
+							type: "string",
+						},
+						{
+							internalType: "string",
+							name: "description",
+							type: "string",
+						},
+					],
+					name: "createTask",
+					outputs: [
+						{
+							components: [
+								{
+									internalType: "bytes32",
+									name: "id",
+									type: "bytes32",
+								},
+								{
+									internalType: "bytes32",
+									name: "nextTask",
+									type: "bytes32",
+								},
+								{
+									internalType: "address",
+									name: "user",
+									type: "address",
+								},
+								{
+									internalType: "string",
+									name: "title",
+									type: "string",
+								},
+								{
+									internalType: "string",
+									name: "description",
+									type: "string",
+								},
+								{
+									internalType: "uint256",
+									name: "timestamp",
+									type: "uint256",
+								},
+								{
+									internalType: "uint256",
+									name: "updated",
+									type: "uint256",
+								},
+							],
+							internalType: "struct TodoList.Tasks",
+							name: "",
+							type: "tuple",
+						},
+					],
+					stateMutability: "nonpayable",
+					type: "function",
+				},
+				{
+					inputs: [],
+					name: "getAllTasks",
+					outputs: [
+						{
+							components: [
+								{
+									internalType: "bytes32",
+									name: "id",
+									type: "bytes32",
+								},
+								{
+									internalType: "bytes32",
+									name: "nextTask",
+									type: "bytes32",
+								},
+								{
+									internalType: "address",
+									name: "user",
+									type: "address",
+								},
+								{
+									internalType: "string",
+									name: "title",
+									type: "string",
+								},
+								{
+									internalType: "string",
+									name: "description",
+									type: "string",
+								},
+								{
+									internalType: "uint256",
+									name: "timestamp",
+									type: "uint256",
+								},
+								{
+									internalType: "uint256",
+									name: "updated",
+									type: "uint256",
+								},
+							],
+							internalType: "struct TodoList.Tasks[]",
+							name: "",
+							type: "tuple[]",
+						},
+					],
+					stateMutability: "view",
+					type: "function",
+					constant: true,
+				},
+				{
+					inputs: [
+						{
+							internalType: "uint256",
+							name: "taskNum",
+							type: "uint256",
+						},
+						{
+							internalType: "string",
+							name: "title",
+							type: "string",
+						},
+						{
+							internalType: "string",
+							name: "description",
+							type: "string",
+						},
+					],
+					name: "updateTask",
+					outputs: [],
+					stateMutability: "nonpayable",
+					type: "function",
+				},
+				{
+					inputs: [
+						{
+							internalType: "uint256",
+							name: "taskNum",
+							type: "uint256",
+						},
+					],
+					name: "deleteTask",
+					outputs: [],
+					stateMutability: "nonpayable",
+					type: "function",
+				},
+				{
+					inputs: [
+						{
+							internalType: "string",
+							name: "title",
+							type: "string",
+						},
+						{
+							internalType: "string",
+							name: "description",
+							type: "string",
+						},
+						{
+							internalType: "string",
+							name: "keywords",
+							type: "string",
+						},
+					],
+					name: "createNote",
+					outputs: [
+						{
+							components: [
+								{
+									internalType: "bytes32",
+									name: "id",
+									type: "bytes32",
+								},
+								{
+									internalType: "bytes32",
+									name: "nextNote",
+									type: "bytes32",
+								},
+								{
+									internalType: "address",
+									name: "user",
+									type: "address",
+								},
+								{
+									internalType: "string",
+									name: "title",
+									type: "string",
+								},
+								{
+									internalType: "string",
+									name: "keywords",
+									type: "string",
+								},
+								{
+									internalType: "string",
+									name: "description",
+									type: "string",
+								},
+								{
+									internalType: "uint256",
+									name: "timestamp",
+									type: "uint256",
+								},
+								{
+									internalType: "uint256",
+									name: "updated",
+									type: "uint256",
+								},
+							],
+							internalType: "struct TodoList.Notes",
+							name: "",
+							type: "tuple",
+						},
+					],
+					stateMutability: "nonpayable",
+					type: "function",
+				},
+				{
+					inputs: [],
+					name: "getAllNotes",
+					outputs: [
+						{
+							components: [
+								{
+									internalType: "bytes32",
+									name: "id",
+									type: "bytes32",
+								},
+								{
+									internalType: "bytes32",
+									name: "nextNote",
+									type: "bytes32",
+								},
+								{
+									internalType: "address",
+									name: "user",
+									type: "address",
+								},
+								{
+									internalType: "string",
+									name: "title",
+									type: "string",
+								},
+								{
+									internalType: "string",
+									name: "keywords",
+									type: "string",
+								},
+								{
+									internalType: "string",
+									name: "description",
+									type: "string",
+								},
+								{
+									internalType: "uint256",
+									name: "timestamp",
+									type: "uint256",
+								},
+								{
+									internalType: "uint256",
+									name: "updated",
+									type: "uint256",
+								},
+							],
+							internalType: "struct TodoList.Notes[]",
+							name: "",
+							type: "tuple[]",
+						},
+					],
+					stateMutability: "view",
+					type: "function",
+					constant: true,
+				},
+				{
+					inputs: [
+						{
+							internalType: "uint256",
+							name: "NoteNum",
+							type: "uint256",
+						},
+						{
+							internalType: "string",
+							name: "title",
+							type: "string",
+						},
+						{
+							internalType: "string",
+							name: "description",
+							type: "string",
+						},
+						{
+							internalType: "string",
+							name: "keywords",
+							type: "string",
+						},
+					],
+					name: "updateNote",
+					outputs: [],
+					stateMutability: "nonpayable",
+					type: "function",
+				},
+				{
+					inputs: [
+						{
+							internalType: "uint256",
+							name: "noteNum",
+							type: "uint256",
+						},
+					],
+					name: "deleteNote",
+					outputs: [],
+					stateMutability: "nonpayable",
+					type: "function",
+				},
+			];
+
+			var contract = new web3.eth.Contract(abi, Contactaddress);
+
+			// create user function
+			async function createUser() {
+				var username = document.getElementById("username").value;
+				const accounts = await web3.eth.getAccounts();
+				address = accounts[0];
+				var JoinTime = Date.now();
+				var user = await contract.methods.createUser(username).send({
+					from: address,
+				});
+				console.log(user);
+                username = await getUser();
+				window.location.href = "#Notes";
+			}
+
+			//get user function
+			async function getUser() {
+				const accounts = await web3.eth.getAccounts();
+				address = accounts[0];
+				var user = await contract.methods.getUser().call({
+					from: address,
+				});
+				console.log(user);
+                return user.username;
+			}
+
+            // aready have username function
+            async function alreadyhaveUsername() {
+                
+                username = await getUser();
+                window.location.href = "#Notes";
+            }
+
+            //pop up form function - create notes
+            async function popUpForm1() {
+                var modal = new bootstrap.Modal(document.getElementById('createNotesModal'), {
+                    keyboard: false
+                });
+                modal.show();
+            }
+
+            //pop up form function - delete notes
+            async function popUpForm2() {
+                var modal = new bootstrap.Modal(document.getElementById('deleteNotesModal'), {
+                    keyboard: false
+                });
+                modal.show();
+            }
+
+            // pop up form function - update notes
+            async function popUpForm3() {
+                document.getElementById("notenum").innerText = document.getElementById("noteNum").innerText;
+                var modal = new bootstrap.Modal(document.getElementById('updateNotesModal'), {
+                    keyboard: false
+                });
+                modal.show();
+            }
+
+            // create notes function
+            async function createNotes() {
+                var title = document.getElementById("title").value;
+                var description = document.getElementById("description").value;
+                var keywords = document.getElementById("keywords").value;
+                const accounts = await web3.eth.getAccounts();
+                address = accounts[0];
+                var note = await contract.methods.createNote(title, description, keywords).send({
+                    from: address,
+                });
+                console.log(note);
+                window.location.href = "#Notes";
+            }
+
+            // get all notes function
+            // async function getAllNotes() {
+            //     const accounts = await web3.eth.getAccounts();
+            //     address = accounts[0];
+            //     var notes = await contract.methods.getAllNotes().call({
+            //         from: address,
+            //     });
+            //     console.log(notes);
+            // }
+
+            // getAllNotes and display in the card
+            async function getAllNotes() {
+                const accounts = await web3.eth.getAccounts();
+                address = accounts[0];
+                var notes = await contract.methods.getAllNotes().call({
+                    from: address,
+                });
+                console.log(notes);
+                var notesDiv = document.getElementById("notescards");
+                notesDiv.innerHTML = "";
+                var count = 1;
+                notes.forEach((note) => {
+                    var card = document.createElement("div");
+                    card.className = "card";
+                    card.style = "width: 18rem; margin: 20px;";
+                    card.innerHTML = `
+                        <div class="card-body" style="font-size:1.2rem;">
+                            <h2 class="card-title">${note.title}</h2>
+                            <p class="card-text">${note.description}</p>
+                            <p class="card-text">${note.keywords}</p>
+                            <p id="noteNum" style="display: none;">${count++}</p>
+                            <p class="card-text">${Date(note.timestamp)}</p>
+                            <button class="btn btn-dark " style="border-radius:50%;" onclick="popUpForm3()"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="44" viewBox="0 0 24 24"><path fill="white" d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157l3.712 3.712l1.157-1.157a2.625 2.625 0 0 0 0-3.712m-2.218 5.93l-3.712-3.712l-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32z"/></svg></button>
+                        </div>
+                    `;
+                    notesDiv.appendChild(card);
+                });
+            }
+
+
+
+
+            // delete notes function
+            async function deleteNotes() {
+                var noteNum = document.getElementById("deleteNote").value;
+                const accounts = await web3.eth.getAccounts();
+                address = accounts[0];
+                var note = await contract.methods.deleteNote(noteNum).send({
+                    from: address,
+                });
+                console.log(note);
+                window.location.href = "#Notes";
+            }
+
+            // update notes function
+            async function updateNotes() {
+                var title = document.getElementById("uptitle").value;
+                var noteNum = document.getElementById("notenum").innerText;
+                console.log(noteNum);
+                var description = document.getElementById("updescription").value;
+                var keywords = document.getElementById("upkeywords").value;
+                const accounts = await web3.eth.getAccounts();
+                address = accounts[0];
+                var note = await contract.methods.updateNote(noteNum,title, description, keywords).send({
+                    from: address,
+                });
+                console.log(note);
+                window.location.href = "#Notes";
+            }
+
+            
+
+
+
+
+		</script>
+	</body>
+</html>
